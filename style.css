@@ -1,0 +1,78 @@
+@import url("https://use.typekit.net/jre3vul.css");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #db524d;
+  --shadow-color: #c34843;
+  --light-colour: #df645f;
+  --font-color: #591e29;
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+a,
+p {
+  font-family: moniker, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+}
+
+ol,
+main h1,
+main h2,
+main ul,
+footer ul,
+main p,
+footer p {
+  color: var(--font-color);
+}
+
+main a {
+  color: var(--main-color);
+}
+
+path {
+  color: white;
+}
+
+header {
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+nav {
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem var(--shadow-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+}
+
+.clock {
+  background-color: var(--light-colour);
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.clock h2,
+.clock a {
+  align-self: center;
+}
