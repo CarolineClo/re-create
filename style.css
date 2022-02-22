@@ -4,11 +4,19 @@
   box-sizing: border-box;
 }
 
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 :root {
   --main-color: #db524d;
   --shadow-color: #c34843;
-  --light-colour: #df645f;
+  --light-colour: #d87671;
   --font-color: #591e29;
+  --main-font: moniker, sans-serif;
+  --thin-font: dita, sans-serif;
 }
 
 h1,
@@ -18,11 +26,14 @@ h4,
 ul,
 a,
 p {
-  font-family: moniker, sans-serif;
+  font-family: var(--main-font);
   font-weight: 600;
-  font-style: normal;
   color: white;
   text-decoration: none;
+}
+
+a:hover {
+  transform: scale(110%);
 }
 
 ol,
@@ -35,44 +46,279 @@ footer p {
   color: var(--font-color);
 }
 
+main h1 {
+  font-size: 1.8rem;
+}
+
+/* text at bottom */
 main a {
   color: var(--main-color);
 }
-
+/* the wee symbols */
 path {
   color: white;
 }
-
+/* everything at the top in the red  */
 header {
   background-color: var(--main-color);
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  align-items: center;
 }
-
+/* navigation bar */
 nav {
-  border-radius: 0.3rem;
+  border-radius: 0.1rem;
   box-shadow: 0 0.3rem var(--shadow-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  padding: 0.5rem 0;
+  max-width: 800px;
+}
+/* links in navigation */
+nav li {
+  background-color: var(--light-colour);
+  padding: 0.3rem;
+  margin: 0 0.3rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
 }
 
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* all links in the red area */
 header ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 0;
   padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.current {
+  background-color: var(--shadow-color);
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+li a {
+  font-weight: 100;
+}
+
+/* light red section */
+.clock {
+  background-color: var(--light-colour);
+  margin: 2rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  border-radius: 0.2rem;
+}
+
+.clock h1,
+.clock a {
+  align-self: center;
+}
+
+.clock h1 {
+  font-size: 6rem;
+  margin: 0 2rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  color: var(--light-colour);
+  font-family: var(--main-font);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* tasks section  */
+
+.tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-bottom: solid 2px var(--light-colour);
+}
+
+.tasks h3,
+.tasks h4 {
+  text-align: center;
+  grid-column: 1 / -1;
+  margin: 0.3rem;
+}
+
+/* .tasks svg { 
+  justify-self: flex-end;
+ } */
+
+.tasks h3,
+.counter h3 {
+  font-family: var(--thin-font);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.tasks h4 {
+  font-size: 1rem;
+}
+
+.tasks svg {
+  justify-self: right;
+}
+/* checks section */
+
+.check1,
+.check2 {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.3rem;
+  margin: 0.5rem 0;
+}
+
+.check1 {
+  border-left: 4px solid;
+}
+
+.check1 path {
+  color: burlywood;
+}
+.check2 path {
+  color: var(--main-color);
+}
+.check1 h3 {
+  color: black;
+}
+
+.check1 li,
+.check2 li {
+  padding: 0 0.5rem;
+}
+
+.check1 p,
+.check2 p,
+.check2 h3,
+.check1 path:nth-child(2) {
+  color: #a68a8c;
+}
+
+/* Add task section */
+
+.addTask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--shadow-color);
+  border: dashed 2px var(--light-colour);
+}
+
+/* counter section */
+
+.counter {
+  display: flex;
+  justify-content: space-around;
+}
+strong {
+  font-family: var(--main-font);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.info {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info path {
+  color: var(--main-color);
+}
+
+.info h2 {
+  margin: 2rem 0 0 0;
+}
+
+.info li,
+.info p {
+  font-family: var(--main-font);
+  font-weight: 500;
+}
+
+.info li {
+  margin: 0.8rem;
+}
+
+.info ul {
   list-style: none;
 }
 
-.clock {
-  background-color: var(--light-colour);
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
+.info ul li::before {
+  content: "\2022";
+  color: var(--main-color);
+  font-weight: bolder;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
 }
 
-.clock h2,
-.clock a {
-  align-self: center;
+/* footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1rem;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+footer path {
+  color: grey;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer span {
+  color: var(--main-color);
+}
+
+footer h5 {
+  font-family: var(--thin-font);
+  color: var(--font-color);
+}
+
+@media only screen and (max-width: 400px) {
+  .clock h1 {
+    font-size: 3rem;
+  }
+
+  nav ul,
+  .clock ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
